@@ -82,7 +82,7 @@ def getAQI():
 
 	now = datetime.now()
 	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-	prepend_line("AQILog.txt", dt_string + "-->  " + aqi)
+	prepend_line("AQILog.txt", dt_string + "-->  " + aqi, folder="./Logs/")
 
 	MyPrint("Got AQI for Eugene OR", "Always")
 	return int(aqi)
