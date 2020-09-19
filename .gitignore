@@ -1,0 +1,5 @@
+#Temp for build
+build/
+__pycache__/
+dist/Logs
+dist/AQILog.txt
