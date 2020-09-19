@@ -12,8 +12,9 @@ if not os.path.isdir("./Logs"):
 	os.mkdir("./Logs")
 
 for f in os.listdir("./Logs"):
-	number = int(f[3:4] if f[4:5] == "." else f[3:5])
-	highest = highest if number < highest else number
+	if not f == "AQILog.txt":
+		number = int(f[3:4] if f[4:5] == "." else f[3:5])
+		highest = highest if number < highest else number
 
 def MyPrint(string, debugLevel):
 	now = datetime.now()
