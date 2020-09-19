@@ -48,7 +48,7 @@ class Window(QMainWindow):
 
 		self.timer = QTimer()
 		self.timer.timeout.connect(update_label)
-		self.timer.start(60000)  # every 60,000 milliseconds, or 1 minute
+		self.timer.start(5*(60000))  # every 5 * 60,000 milliseconds, or 5 minute
 
 
 	def mousePressEvent(self, event):
