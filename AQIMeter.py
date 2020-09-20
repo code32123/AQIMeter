@@ -6,50 +6,51 @@ from PyQt5.QtWidgets import *
 import sys 
 
 from getAQI import getAQI
-  
+from Tools import *
+
   
 class Window(QMainWindow): 
-  
-  
-	def __init__(self): 
+	def __init__(self,BorderColor="white"): 
 		QMainWindow.__init__(self, None, (Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint))
 		self.setAttribute(Qt.WA_TranslucentBackground)
-
 		self.__press_pos = None
-
-		self.setStyleSheet("background-color: white; border: 2px solid red;")
-  
+		self.setStyleSheet("background-color: white; border: 2px solid " + BorderColor + ";border-radius:5px;")
 		# set the title 
 		self.setWindowTitle("AQI")
-  
 		self.setWindowOpacity(1) 
-  
-  
-		# setting  the geometry of window 
-		self.setGeometry(0, 0, 80, 50) 
-  
 		# creating a label widget 
-		self.label_1 = QLabel(str(getAQI()), self) 
-
-		self.label_1.setFont(QFont('Arial', 18))
-
+		AQI = getAQI()
+		self.Meter = QLabel(str(AQI), self) 
+		self.Meter.setFont(QFont('Arial', 18))
+		def updateColor(AQI):
+			if   0 <= AQI <=  50:
+				self.Meter.setStyleSheet("background-color: white; border: 2px solid green       ;border-radius:5px;")
+			if  50 <= AQI <= 100:
+				self.Meter.setStyleSheet("background-color: white; border: 2px solid yellow      ;border-radius:5px;")
+			if 100 <= AQI <= 150:
+				self.Meter.setStyleSheet("background-color: white; border: 2px solid orange      ;border-radius:5px;")
+			if 150 <= AQI <= 200:
+				self.Meter.setStyleSheet("background-color: white; border: 2px solid red         ;border-radius:5px;")
+			if 200 <= AQI <= 300:
+				self.Meter.setStyleSheet("background-color: white; border: 2px solid mediumorchid;border-radius:5px;")
+			if 300 < AQI:
+				self.Meter.setStyleSheet("background-color: white; border: 2px solid maroon      ;border-radius:5px;")
+		updateColor(AQI)
 		# moving position 
-		self.label_1.move(20, 10) 
-  
-		self.label_1.adjustSize() 
-  
+		self.Meter.move(0, 0) 
+		self.Meter.adjustSize() 
 		# show all the widgets 
 		self.show()
-
 		self.setMouseTracking(True)
-
 		def update_label():
-			self.label_1.setText(str(getAQI()))
+			AQI = getAQI()
+			self.Meter.setText(str(AQI))
+			updateColor(AQI)
+
 
 		self.timer = QTimer()
 		self.timer.timeout.connect(update_label)
 		self.timer.start(5*(60000))  # every 5 * 60,000 milliseconds, or 5 minute
-
 
 	def mousePressEvent(self, event):
 		if event.button() == Qt.LeftButton:
