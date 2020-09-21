@@ -24,12 +24,9 @@ def resource_path(relative_path):
 		base_path = os.path.dirname(__file__)
 	return os.path.join(base_path, relative_path)
 
-def getAQI():
+def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 
 	MyPrint("Getting AQI for Eugene OR", "Always")
-
-	#The url to scrape
-	url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"
 
 	#Stuff to get chrome to work
 	options = Options()  

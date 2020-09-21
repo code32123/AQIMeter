@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['AQIMeter.py'],
+a = Analysis(['AQI-Settings.py'],
              pathex=['C:\\Users\\jimmy\\Python\\AQIMeter'],
              binaries=[('C:/Users/jimmy/Python/AQIMeter/Chrome/chromedriver.exe', './Chrome')],
              datas=[],

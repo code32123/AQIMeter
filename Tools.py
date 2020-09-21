@@ -27,9 +27,11 @@ def MyPrint(string, debugLevel):
 		elif debugLevel == "Debug" and showDebug:
 			print("DEBUG: " + string)
 		elif debugLevel == "Warning" or debugLevel == "Warn":
-			print("Warning: " + string)
+			print("WARNING: " + string)
 		elif (debugLevel == "Information" or debugLevel == "Info") and showInformation:
-			print(string)
+			print("INFO: " + string)
+		elif (debugLevel == "CRITICAL" or debugLevel == "FATAL"):
+			print("FATAL: " + string)
 		else:
 			MyPrint("Invalid Status for Print: " + string, "Warn")
 
