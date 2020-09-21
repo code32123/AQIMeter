@@ -33,7 +33,7 @@ class program(QWidget):
 			"Boardman, OR" :"https://www.airnow.gov/?city=Boardman&state=OR&country=USA",
 			"Spokane, WA" :"https://www.airnow.gov/?city=Spokane&state=WA&country=USA",
 			"Murray, UT" :"https://www.airnow.gov/?city=Murray&state=UT&country=USA",
-			"Other (see info.txt)" :"Other",
+			"Other (see README)" :"Other",
 		}
 		self.link = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"
 		self.setWindowTitle("AQI - Settings")
