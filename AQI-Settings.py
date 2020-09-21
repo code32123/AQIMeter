@@ -27,11 +27,13 @@ class program(QWidget):
 			  "background-color"	: "white",
 			  "color"				: "black",
 			}
-			
+
 		self.locations = {
 			"Eugene, OR":"https://www.airnow.gov/?city=Eugene&state=OR&country=USA",
 			"Boardman, OR" :"https://www.airnow.gov/?city=Boardman&state=OR&country=USA",
-			"Other" :"Other",
+			"Spokane, WA" :"https://www.airnow.gov/?city=Spokane&state=WA&country=USA",
+			"Murray, UT" :"https://www.airnow.gov/?city=Murray&state=UT&country=USA",
+			"Other (see info.txt)" :"Other",
 		}
 		self.link = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"
 		self.setWindowTitle("AQI - Settings")
@@ -76,10 +78,10 @@ class program(QWidget):
 		self.DemoMeter.setFont(QFont('Arial', 18))
 		self.updateSyles()
 
-		self.saveButton = QPushButton('SAVE', self)
+		self.saveButton = QPushButton('Save', self)
 		self.saveButton.clicked.connect(self.save)
 
-		self.launchButton = QPushButton('Launch!', self)
+		self.launchButton = QPushButton('Save & Launch!', self)
 		self.launchButton.clicked.connect(self.launch)
 
 		self.hLayout1 = QHBoxLayout()
@@ -122,7 +124,7 @@ class program(QWidget):
 
 	def changeLocation(self, string):
 		self.link = self.locations[string]
-		if string == "Other":
+		if string == "Other" or self.locations[string] == "Other":
 			self.locationOptionalSubmitButton.show()
 			self.locationOptional.show()
 		else:
@@ -156,6 +158,7 @@ class program(QWidget):
 		self.updateSyles()
 
 	def launch(self):
+		save()
 		#App2 = QApplication(sys.argv) 
 		window = AQIMeter.Window()
 		window.show()
