@@ -27,7 +27,7 @@ Contact info!
 My name is jimmy, and you can reach me at:
  + Email (Best option): jimmy.l.smythe@gmail.com
  + Text  (Pretty good): 541-510-6446
- + Phone (Last resort): 541-510-6446
+ + Phone (Last resort): Same number
 
 Don't call unless it's your only option! I don't answer my phone, and my voice-mail system is terrible, so it might not get to me.
 Also, I will respond immediately to let you know I got your comment/question, but I might not be able to answer for a little while.
