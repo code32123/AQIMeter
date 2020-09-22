@@ -9,10 +9,11 @@ from getAQI import getAQI
 from Tools import *
 import json
 
-  
+#main window of the meter itself
 class Window(QWidget): 
 	def __init__(self):
 		try:
+			#Reads the settings file, loads the JSON, then sets variables based on the JSON
 			with open("settings.json", "r") as f:
 				self.data = f.read()
 			self.data = json.loads(self.data)
@@ -20,7 +21,7 @@ class Window(QWidget):
 			BGColor = self.data["background-color"]
 			Color = self.data["color"]
 		except:
-			MyPrint("File 'settings.json' not found. Using default settings. To fix, run the settings program.", "Warning")
+			LoggerPrint("File 'settings.json' not found. Using default settings. To fix, run the settings program.", "Warning")
 			url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"
 			BGColor = "white"
 			Color = "black"

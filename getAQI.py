@@ -1,4 +1,3 @@
-
 #Standards:
 #	Naming
 #	Commenting
@@ -26,7 +25,7 @@ def resource_path(relative_path):
 
 def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 
-	MyPrint("Getting AQI for Eugene OR", "Always")
+	LoggerPrint("Getting AQI for Eugene OR", "Always")
 
 	#Stuff to get chrome to work
 	options = Options()  
@@ -35,13 +34,13 @@ def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 	options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 	#Starting chrome
-	MyPrint("Initializing Chrome", "Information")
-	MyPrint(str(resource_path('Chrome\\chromedriver.exe')),"Debug")
+	LoggerPrint("Initializing Chrome", "Information")
+	LoggerPrint(str(resource_path('Chrome\\chromedriver.exe')),"Debug")
 	browser = webdriver.Chrome(options=options, executable_path=resource_path('Chrome\\chromedriver.exe'))  
-	MyPrint("Chrome Browser Initialized in Headless Mode", "Debug")
+	LoggerPrint("Chrome Browser Initialized in Headless Mode", "Debug")
 
 	#Get the url
-	MyPrint("Getting url:  " + url, "Information")
+	LoggerPrint("Getting url:  " + url, "Information")
 	browser.get(url)
 
 	#The delay in seconds
@@ -49,19 +48,19 @@ def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 
 	try:
 		#Waits for three seconds. Don't ask me why, it just works.
-		MyPrint("Waiting for webpage to load", "Information")
+		LoggerPrint("Waiting for webpage to load", "Information")
 		myElem = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.ID, 'SHOULDNOTEXSIST')))
-		MyPrint(" 'SHOULDNOTEXSIST', exists! The page may not be fully loaded!", "Warning")
+		LoggerPrint(" 'SHOULDNOTEXSIST', exists! The page may not be fully loaded!", "Warning")
 	except TimeoutException:
 		#Expected. IS NOT BAD. Just means it waited enough for the page to load.
-		MyPrint("Loaded!", "Debug")
+		LoggerPrint("Loaded!", "Debug")
 
 	#Save the inner html to a variable
 	html = browser.page_source
 
 	#Quitting chrome
 	browser.quit()
-	MyPrint("Browser Exited", "Information")
+	LoggerPrint("Browser Exited", "Information")
 
 	#Takes the innerhtml, and saves it as text.
 	html = html.encode('cp850','replace').decode('cp850')
@@ -75,11 +74,11 @@ def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 		aqi = aqi[0:2]
 
 	#Prints and returns
-	MyPrint(aqi, "Debug")
+	LoggerPrint(aqi, "Debug")
 
 	now = datetime.now()
 	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 	prepend_line("AQILog.txt", dt_string + "-->  " + aqi, folder="./Logs/")
 
-	MyPrint("Got AQI for Eugene OR", "Always")
+	LoggerPrint("Got AQI for Eugene OR", "Always")
 	return int(aqi)

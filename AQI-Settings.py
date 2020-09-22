@@ -81,7 +81,7 @@ class program(QWidget):
 		self.saveButton = QPushButton('Save', self)
 		self.saveButton.clicked.connect(self.save)
 
-		self.launchButton = QPushButton('Save & Launch!', self)
+		self.launchButton = QPushButton('Save && Launch!', self)
 		self.launchButton.clicked.connect(self.launch)
 
 		self.hLayout1 = QHBoxLayout()
@@ -120,7 +120,7 @@ class program(QWidget):
 	def locationOptionalSubmit(self):
 		locationOptionalText = self.locationOptional.text()
 		self.link = locationOptionalText
-		MyPrint(self.link, "Debug")	
+		LoggerPrint(self.link, "Debug")	
 
 	def changeLocation(self, string):
 		self.link = self.locations[string]
@@ -130,7 +130,7 @@ class program(QWidget):
 		else:
 			self.locationOptionalSubmitButton.hide()
 			self.locationOptional.hide()
-		MyPrint(self.link, "Debug")
+		LoggerPrint(self.link, "Debug")
 
 	def updateSyles(self):
 		stylesString = ""
@@ -158,7 +158,7 @@ class program(QWidget):
 		self.updateSyles()
 
 	def launch(self):
-		save()
+		self.save()
 		#App2 = QApplication(sys.argv) 
 		window = AQIMeter.Window()
 		window.show()
@@ -175,7 +175,7 @@ class program(QWidget):
 		color = QColorDialog.getColor()
 
 		if color.isValid():
-			MyPrint(color.name(), "Debug")
+			LoggerPrint(color.name(), "Debug")
 			self.styles["background-color"] = color.name()
 			self.updateSyles()
 
@@ -183,7 +183,7 @@ class program(QWidget):
 		color = QColorDialog.getColor()
 
 		if color.isValid():
-			MyPrint(color.name(), "Debug")
+			LoggerPrint(color.name(), "Debug")
 			self.styles["color"] = color.name()
 			self.updateSyles()
 
