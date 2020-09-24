@@ -12,6 +12,15 @@ Having trouble? A better guide to settings up shortcuts is here: [How To Geek][2
 ---
 
 Next:
+To add a link other than those on the list of presets:
+1.  First, go to [AirNow.gov][https://www.airnow.gov/]
+2.  Enter your location into the textbox
+3.  After the website displays an AQI for your area, copy the link (Usually somthing like www.airnow.gov/?city=&state=&country=USA)
+4.  Paste this link in the text box of the AQI program, and press done. This saves the linkk as the current url to search.
+
+---
+
+Finally:
 Here is a list of files this program will generate. As there is not an installation process, neither is their an uninstallation process.\
 If you want to remove the application, you will need to remove the .exe and the following files and folders
 | File or Folder | Description |
