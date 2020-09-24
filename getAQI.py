@@ -78,7 +78,7 @@ def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 
 	now = datetime.now()
 	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-	prepend_line("AQILog.txt", dt_string + "-->  " + aqi, folder="./Logs/")
+	append_line("AQILog.txt", dt_string + "-->  " + aqi, folder="./Logs/")
 
 	LoggerPrint("Got AQI", "Always")
 	return int(aqi)

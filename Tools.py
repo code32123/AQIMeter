@@ -16,10 +16,11 @@ for f in os.listdir("./Logs"):
 		number = int(f[3:4] if f[4:5] == "." else f[3:5])
 		highest = highest if number < highest else number
 
+
 def LoggerPrint(string, debugLevel):
 	now = datetime.now()
 	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-	prepend_line("Log" + str(highest + 1) + ".txt", dt_string + "-->  " + debugLevel + ":  " + string, folder="./Logs/")
+	append_line("Log" + str(highest + 1) + ".txt", dt_string + "-->  " + debugLevel + ":  " + string, folder="./Logs/")
 
 	if not silentMode:
 		if debugLevel == "Always":
@@ -35,7 +36,7 @@ def LoggerPrint(string, debugLevel):
 		else:
 			LoggerPrint("Invalid Status for Print: " + string, "Warn")
 
-#def prepend_line(file_name, line, folder="./"):
+#def append_line(file_name, line, folder="./"):
 #	fullFile = folder + file_name
 #	""" Insert given string as a new line at the beginning of a file """
 #	if file_name in os.listdir(folder):
@@ -55,7 +56,7 @@ def LoggerPrint(string, debugLevel):
 #	else:
 #		with open(fullFile, "w+") as f:
 #			f.write(line)
-def prepend_line(file_name, line, folder="./"):
+def append_line(file_name, line, folder="./"):
 	fullFile = folder + file_name
 	if file_name in os.listdir(folder):
 		with open(fullFile, "a") as f:

@@ -31,6 +31,7 @@ class program(QWidget):
 			  "background-color"	: "white",
 			  "color"				: "black",
 			}
+			self.link = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"
 
 		# Dict of location presets
 		self.locations = {
