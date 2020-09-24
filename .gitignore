@@ -1,5 +1,6 @@
 #Temp for build
-build/
+temp/
 __pycache__/
 Logs
 settings.json
+dist/
