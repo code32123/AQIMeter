@@ -4,8 +4,8 @@ If you find a bug, reports should to [Github Issues][3]. If you need me, the bes
 ---
 
 First order of business, below is recommended setup:
-1.	Make a folder, wherever you want, and save the .exe file there. The exe will generate files it needs when it is run.
-2.	Hold "Alt" and drag the .exe to your desktop. It should say "Create link in Desktop"\
+1.	If your on Windows, downoad the windowsProgram folder to wherever you want it to be. If your on mac or linux, I haven't made a version that support you yet.
+2.	Hold "Alt" and drag the .exe to your desktop. It should say "Create link in Desktop"
 3.	Done! The exe will generate everthing it needs wherever you put it.
 Having trouble? A better guide to settings up shortcuts is here: [How To Geek][2]
 
@@ -16,7 +16,7 @@ To add a link other than those on the list of presets:
 1.  First, go to [AirNow.gov](https://www.airnow.gov/)
 2.  Enter your location into the textbox
 3.  After the website displays an AQI for your area, copy the link (Usually somthing like www.airnow.gov/?city=&state=&country=USA)
-4.  Paste this link in the text box of the AQI program, and press done. This saves the linkk as the current url to search.
+4.  Paste this link in the text box of the AQI program (after you have selected 'other' from the dropdown), and press done. This saves the linkk as the current url to search.
 
 ---
 
