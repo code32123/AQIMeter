@@ -67,7 +67,7 @@ class Window(QWidget):
 		# Begins a loop that will update the meter every 5 minutes
 		self.timer = QTimer()
 		self.timer.timeout.connect(update_label)
-		self.timer.start(5*(60000))  # every 5 * 60,000 milliseconds, or 5 minute
+		self.timer.start(5*(60000))  # every 5 * 60,000 milliseconds, or 5 minutes
 
 	# Mouse events for dragging
 	def mousePressEvent(self, event):
