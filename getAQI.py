@@ -15,7 +15,7 @@ from Tools import *
 from datetime import datetime
 import os
 
-
+# Used to get chromedriver from temp storage
 def resource_path(relative_path):
 	try:
 		base_path = sys._MEIPASS
@@ -23,9 +23,46 @@ def resource_path(relative_path):
 		base_path = os.path.dirname(__file__)
 	return os.path.join(base_path, relative_path)
 
+
 def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 
-	LoggerPrint("Getting AQI", "Always")
+	urlMOD = url.replace("%20", " ")
+
+	CityI = 0
+	StateI = 0
+	AmperI = 0
+	string = ""
+
+	while string != "city=":
+		string = urlMOD[CityI:CityI+5]
+		CityI += 1
+		if CityI > 100:
+			break
+
+	while string != "&":
+		string = urlMOD[AmperI:AmperI+1]
+		AmperI += 1
+		if AmperI > 100:
+			break
+
+	City = urlMOD[CityI+4:AmperI-1]
+
+	while string != "state=":
+		string = urlMOD[StateI:StateI+6]
+		StateI += 1
+		if StateI > 100:
+			break
+
+	AmperI = AmperI + 5
+	while string != "&":
+		string = urlMOD[AmperI:AmperI+1]
+		AmperI += 1
+		if AmperI > 100:
+			break
+
+	State = urlMOD[StateI+5:AmperI-1]
+
+	LoggerPrint("Getting AQI from: " + City + ", " + State , "Always")
 
 	# Stuff to get chrome to work
 	options = Options()  
@@ -82,3 +119,6 @@ def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 
 	LoggerPrint("Got AQI", "Always")
 	return int(aqi)
+
+if __name__ == '__main__':
+	print(getAQI(url="https://www.airnow.gov/?city=New%20Egypt&state=NJ&country=USA"))
