@@ -22,6 +22,7 @@ class program(QWidget):
 			with open("settings.json", "r") as f:
 				self.data = f.read()
 			self.data = json.loads(self.data)
+			self.link = self.data["link"]
 			self.styles = {
 			  "background-color"	: self.data["background-color"],
 			  "color"				: self.data["color"],

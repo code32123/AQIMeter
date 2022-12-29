@@ -1,0 +1,1 @@
+pyinstaller --specpath AQIMeter.spec --distpath windowsProgram --workpath temp AQIMeter.spec

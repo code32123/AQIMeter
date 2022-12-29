@@ -121,4 +121,4 @@ def getAQI(url = "https://www.airnow.gov/?city=Eugene&state=OR&country=USA"):
 	return int(aqi)
 
 if __name__ == '__main__':
-	print(getAQI(url="https://www.airnow.gov/?city=New%20Egypt&state=NJ&country=USA"))
+	LoggerPrint(getAQI(), "Always")

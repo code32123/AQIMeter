@@ -20,12 +20,16 @@ for f in os.listdir("./Logs"):
 
 # Logging mechanism, with debug levels, and logging to file.
 def LoggerPrint(string, debugLevel="Invalid"):
+	string = str(string)
 	now = datetime.now()
 	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 	if not silentMode:
 		if debugLevel == "Always":
-			print(string)
+			if showDebug:
+				print("ALWAYS: " + string)
+			else:
+				print(string)
 			debugLevel = "ALWAYS"
 		elif debugLevel == "Debug" and showDebug:
 			print("DEBUG: " + string)
